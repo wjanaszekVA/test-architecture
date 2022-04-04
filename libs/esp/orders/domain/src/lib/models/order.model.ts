@@ -1,4 +1,3 @@
-import { SaveOrderPort } from '../ports/save-order.port';
 import { LineItemUtil } from '../utils/line-item.util';
 import { LineItem } from './line-item.model';
 import { OrderType } from './order-type.model';
@@ -8,6 +7,10 @@ export class Order {
   Id!: number;
   Type!: OrderType;
   LineItems: LineItem[] = [];
+
+  constructor(data: unknown) {
+    Object.assign(this, data);
+  }
 
   addLineItems(products: Product[]): void {
     this.LineItems = [
