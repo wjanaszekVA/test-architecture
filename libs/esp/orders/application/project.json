@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/esp/orders/application",
+  "sourceRoot": "libs/esp/orders/application/src",
+  "prefix": "wojjan",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/esp/orders/application"],
+      "options": {
+        "project": "libs/esp/orders/application/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/esp/orders/application/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/esp/orders/application/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/esp/orders/application"],
+      "options": {
+        "jestConfig": "libs/esp/orders/application/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/esp/orders/application/src/**/*.ts",
+          "libs/esp/orders/application/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

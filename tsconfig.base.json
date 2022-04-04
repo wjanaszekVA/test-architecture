@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@wojjan/esp/orders/application": [
+        "libs/esp/orders/application/src/index.ts"
+      ],
+      "@wojjan/esp/orders/domain": ["libs/esp/orders/domain/src/index.ts"],
+      "@wojjan/esp/orders/infrastructure": [
+        "libs/esp/orders/infrastructure/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

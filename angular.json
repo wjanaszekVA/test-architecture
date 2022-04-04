@@ -2,6 +2,9 @@
   "version": 2,
   "projects": {
     "esp": "apps/esp",
-    "esp-e2e": "apps/esp-e2e"
+    "esp-e2e": "apps/esp-e2e",
+    "esp-orders-application": "libs/esp/orders/application",
+    "esp-orders-domain": "libs/esp/orders/domain",
+    "esp-orders-infrastructure": "libs/esp/orders/infrastructure"
   }
 }
