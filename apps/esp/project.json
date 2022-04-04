@@ -1,0 +1,88 @@
+{
+  "projectType": "application",
+  "root": "apps/esp",
+  "sourceRoot": "apps/esp/src",
+  "prefix": "wojjan",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/esp",
+        "index": "apps/esp/src/index.html",
+        "main": "apps/esp/src/main.ts",
+        "polyfills": "apps/esp/src/polyfills.ts",
+        "tsConfig": "apps/esp/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/esp/src/favicon.ico", "apps/esp/src/assets"],
+        "styles": ["apps/esp/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/esp/src/environments/environment.ts",
+              "with": "apps/esp/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "esp:build:production"
+        },
+        "development": {
+          "browserTarget": "esp:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "esp:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/esp/src/**/*.ts", "apps/esp/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/esp"],
+      "options": {
+        "jestConfig": "apps/esp/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
